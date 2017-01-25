@@ -50,4 +50,8 @@ $(function() {
   link('test', function(x) {return x;});
   link('index', crossIndex);
   link('rotate', rotateLetters, $('#rotateby').val());
+
+  $.get('functions.js', function(data) {
+    $('#script').val(data);
+  });
 });
