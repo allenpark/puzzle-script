@@ -1,4 +1,4 @@
-var readData = function() {
+function readData() {
   var rawData = $('#input').val();
   var rows = rawData.split('\n');
 
@@ -20,9 +20,9 @@ var readData = function() {
     }
   }
   return data;
-};
+}
 
-var outputData = function(data) {
+function outputData(data) {
   var table = $('#outputtable');
   table.empty();
 
@@ -33,13 +33,13 @@ var outputData = function(data) {
     }
     table.append(row);
   }
-};
+}
 
-var link = function(buttonName, func, opt_param) {
+function link(buttonName, func, opt_param) {
   $('#' + buttonName + 'button').click(function() {
     outputData(func(readData(), opt_param));
   });
-};
+}
 
 $(function() {
   // Fill in test data.

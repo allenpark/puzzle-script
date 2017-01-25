@@ -3,14 +3,14 @@
  * these functions should make that a lot easier.
  */
 
-var genericHeader = function(num) {
+function genericHeader(num) {
   var gen = [];
   for (var i = 0; i < num; i++) {
     // TODO: support past Z (i=26)
     gen.push(String.fromCharCode(65 + i));
   }
   return gen;
-};
+}
 
 /**
  * Gets headers if they exist and returns a lettering otherwise.
@@ -18,7 +18,7 @@ var genericHeader = function(num) {
  * @param {bool} opt_remove If true, remove headers. Default is false.
  * @returns {!array} The header if found, generic lettering otherwise.
  */
-var getHeaders = function(data, opt_remove) {
+function getHeaders(data, opt_remove) {
   if (data.length == 0) { return false; }
   var remove = opt_remove || false;
   var labels = labelCols(data);
@@ -39,9 +39,9 @@ var getHeaders = function(data, opt_remove) {
   } else {
     return genericHeader(data[0].length);
   }
-};
+}
 
-var groupCols = function(data) {
+function groupCols(data) {
   var labels = labelCols(data);
   var groups = [[], []]; // First is number, second is string.
   for (var i = 0; i < labels.length; i++) {
@@ -52,12 +52,12 @@ var groupCols = function(data) {
     }
   }
   return groups;
-};
+}
 
 /**
  * Labels columns as number or string columns.
  */
-var labelCols = function(data) {
+function labelCols(data) {
   if (data.length == 0) { return []; }
   var labelVotes = [];
   for (var j = 0; j < data[0].length; j++) {
@@ -83,4 +83,4 @@ var labelCols = function(data) {
     }
   }
   return labels;
-};
+}
